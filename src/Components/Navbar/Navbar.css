@@ -1,0 +1,22 @@
+nav{
+    width: 98.5vw;
+    height: 10vh;
+    background-color: black;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+.nav-user{
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+    
+}
+.avatar{
+    border-radius: 30px;
+}
+.username{
+    margin-right: 10px;
+}

@@ -1,0 +1,21 @@
+.recom{
+    
+    
+}
+.rcom{
+    
+    
+}
+.musicItem{
+    width: 100%;
+   color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 14px;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.musicItem img{
+    padding: 10px;
+    border-radius: 30px;
+}

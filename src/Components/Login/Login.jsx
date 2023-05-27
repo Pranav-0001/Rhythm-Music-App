@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Login.css'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth, db } from '../../FIrebase/config'
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 
 
 function Login() {
-    const navigate=useNavigate()
+  const navigate=useNavigate()
+  useEffect(()=>{
+    onAuthStateChanged(auth,(user)=>{
+      if(user){
+          navigate('/')
+      }
+  })
+  })
+    
     const [username,setUsername]=useState('')
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')

@@ -4,7 +4,7 @@ import Recommented from '../Components/Recommended/Recommented'
 
 function Music() {
   return (
-    <div className='row m-0'>
+    <div className='row mt-4  m-0'>
         <div className="ms-5 col-md-3">
             <AudioPlayer/>
         </div>

@@ -45,7 +45,7 @@
   .input {
     width: 100%;
     height: 40px;
-    background: #e0dede;
+    background: #573b8a;
     padding: 10px;
     border: none;
     outline: none;
@@ -96,3 +96,4 @@
   .form button:hover {
     background-color: #6d44b8;
   }
+

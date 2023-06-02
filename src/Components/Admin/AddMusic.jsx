@@ -23,6 +23,7 @@ function AddMusic() {
   console.log(song);
   const handleSOngUpload =async (e) => {
     e.preventDefault()
+    try{
     const imgRef=ref(storage,'coverImage/'+img.name)
     const imgUrlRef=await uploadBytes(imgRef,img)
     const coverUrl=await getDownloadURL(imgUrlRef.ref)
@@ -35,8 +36,12 @@ function AddMusic() {
         })
       })
     })
+  }catch(err){
+    console.log(err);
+  }
   }
   return (
+    
     <div className='addPage'>
       <div class="container2">
         <form class="form2" onSubmit={handleSOngUpload}>

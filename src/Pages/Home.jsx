@@ -7,6 +7,7 @@ import { auth, db } from '../FIrebase/config'
 import TopList from '../Components/Top Listening/TopList'
 import { useNavigate } from 'react-router-dom'
 import { collection, getDocs, query, where } from 'firebase/firestore'
+import ArtistPage from './artistPage'
 
 function Home() {
   const navigate=useNavigate()
@@ -40,6 +41,7 @@ function Home() {
      
      <Music />
      <TopList/>
+     <ArtistPage/>
     </div>
   )
 }

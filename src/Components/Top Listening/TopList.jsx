@@ -10,8 +10,8 @@ import { updateSong } from '../../redux/SongSlice';
 function TopList() {
     const dispatch=useDispatch()
     const[allSongs,setAllSongs]=useState([])
-    const setCurrent=(song,index,allSongs)=>{
-        dispatch(updateSong({cover:song.cover,songTitle:song.title,album:song.Album,songUrl:song.url,songIndex:index,songs:allSongs}))
+    const setCurrent=(song,index,AllSongs)=>{
+        dispatch(updateSong({cover:song.cover,songTitle:song.title,album:song.Album,songUrl:song.url,songIndex:index,songs:AllSongs,isPlay:true}))
       }
     useEffect(()=>{
         try {
@@ -37,9 +37,9 @@ function TopList() {
             <div className='row'>
                 <h1 style={{color:'white'}}>Top Hits</h1>
                 {
-                    allSongs.map((song,index,allSongs)=>{
+                    allSongs.map((song,index,arr)=>{
                         return(
-                                            <div className=' col-md-4 mt-2    mb-2' onClick={()=>setCurrent(song,index,allSongs)}>
+                                            <div className=' col-md-4 mt-2    mb-2' onClick={()=>setCurrent(song,index,arr)}>
                     <div className='musicItem1' style={{overflow:'hidden'}}>
                                             <img  src={song.cover} alt="" height={100} />
                     <div className='d-block pt-3 ms-2'>

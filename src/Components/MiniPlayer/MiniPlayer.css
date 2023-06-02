@@ -34,11 +34,13 @@
 
 #progress{
     -webkit-appearance: none;
-    width: 90%;
+    width: 75%;
     height: 6px;
     background-color: #f53192;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
    
 }
 
@@ -75,3 +77,4 @@
  background: #f53192;
  color: #fff;
 }
+

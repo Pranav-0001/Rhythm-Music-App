@@ -11,7 +11,7 @@ function TopList() {
     const dispatch=useDispatch()
     const[allSongs,setAllSongs]=useState([])
     const setCurrent=(song,index,AllSongs)=>{
-        dispatch(updateSong({cover:song.cover,songTitle:song.title,album:song.Album,songUrl:song.url,songIndex:index,songs:AllSongs,isPlay:true}))
+        dispatch(updateSong({cover:song.cover,songTitle:song.title,album:song.Album,songUrl:song.url,songIndex:index,FavUsers:song.favUser,songs:AllSongs,isPlay:true,songId:song.id}))
       }
     useEffect(()=>{
         try {

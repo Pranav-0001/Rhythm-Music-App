@@ -5,8 +5,10 @@ const INITIAL_STATE={
     songTitle:'',
     album:'',
     songUrl:'',
+    songId:'',
     songIndex:null,
     AllSongs:[],
+    FavUsers:[],
     isPlay:false
 }
 
@@ -22,6 +24,8 @@ export const songSlice=createSlice({
             state.songIndex=action.payload.songIndex
             state.AllSongs=action.payload.songs
             state.isPlay=action.payload.isPlay
+            state.songId=action.payload.songId
+            state.FavUsers=action.payload.FavUsers
 
         }
     }

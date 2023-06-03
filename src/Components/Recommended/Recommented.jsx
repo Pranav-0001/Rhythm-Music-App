@@ -10,7 +10,7 @@ function Recommented() {
   const [songs, setSongs] = useState([])
   const setCurrent = (song, index, allSongs) => {
 
-    dispatch(updateSong({ cover: song.cover, songTitle: song.title, album: song.Album, songUrl: song.url, songIndex: index, songs: allSongs, isPlay: true }))
+    dispatch(updateSong({ cover: song.cover, songTitle: song.title, album: song.Album, songUrl: song.url, songIndex: index,FavUsers:song.favUser, songs: allSongs, isPlay: true,songId:song.id }))
   }
   useEffect(() => {
     const fetchSongs = async () => {
@@ -21,10 +21,11 @@ function Recommented() {
           id: doc.id,
           ...doc.data(),
         }));
-        console.log(songsData[0].cover);
+        
         setSongs(songsData)
+        
         const i = (Math.floor((Math.random()) * 100)) % 8
-        dispatch(updateSong({ cover: songsData[i].cover, songTitle: songsData[i].title, album: songsData[i].Album, songUrl: songsData[i].url, songIndex: i, songs: songsData, isPlay: false }))
+        dispatch(updateSong({ cover: songsData[i].cover, songTitle: songsData[i].title, album: songsData[i].Album, songUrl: songsData[i].url, songIndex: i,FavUsers:songsData[i].favUser, songs: songsData, isPlay: false,songId:songsData[i].id }))
       } catch (error) {
         console.log('Error fetching users:', error);
       }
@@ -46,9 +47,7 @@ function Recommented() {
                   <div className='d-block pt-3 ms-2' style={{width:"100%"}}>
                     <h6 className='m-0'>{index + 1}. {song.title}</h6>
                     <p className='m-0'> {song.Album}</p>
-                    <div className='me-2'>
-                      <i  class="fa-regular  fav-round fs-4 fa-heart float-end "></i>
-                    </div>
+                    
                     
                   </div>
                   

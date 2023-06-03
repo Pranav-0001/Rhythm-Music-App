@@ -10,8 +10,8 @@ function ArtistSong() {
   const {artistName,artistImg,artistId}=useSelector(state => state.artist)
   const [artSongs,setArtSongs]=useState([])
   const setCurrent=(song,index,allSongs)=>{
-    
-    dispatch(updateSong({cover:song.cover,songTitle:song.title,album:song.Album,songUrl:song.url,songIndex:index,songs:allSongs,isPlay:true}))
+    console.log(song);
+    dispatch(updateSong({cover:song.cover,songTitle:song.title,album:song.Album,songUrl:song.url,songIndex:index,songs:allSongs,FavUsers:song.favUser,isPlay:true,songId:song.id}))
   }
   useEffect(()=>{
     const fetch=async()=>{
@@ -22,15 +22,16 @@ function ArtistSong() {
           where('Artist','==',artistId)
         )
         const snapShot = await getDocs(q)
-        const songs=snapShot.docs.map(doc=>doc.data())
-        setArtSongs(songs);
+        const songs = snapShot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+         setArtSongs(songs);
+       
       }
       catch(err){
         console.log(err);
       }
     }
     fetch()
-  },[artSongs])
+  },[artistId])
   
   return (
     
@@ -58,14 +59,6 @@ function ArtistSong() {
           </div>
             )
           })}
-
-          
-
-
-          
-
-
-
         </div>
       </div>
 }
